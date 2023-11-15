@@ -1,9 +1,24 @@
-import Image from 'next/image'
+import { Hero, ProductHome, SpecialOffer, AboutUs } from '@/constants';
 
 export default function Home() {
+
   return (
-    <div>
-      Hello
+    <div >
+      <Hero />
+      <div className='max-w-[1440px] mx-auto justify-center'>
+        <div>
+          <ProductHome/>
+        </div>
+        <div>
+          <SpecialOffer/> 
+        </div>
+        <div>
+          <AboutUs/>
+        </div>
+        
+      </div> 
     </div>
+
   )
+
 }
