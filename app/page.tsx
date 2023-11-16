@@ -13,7 +13,7 @@ export default function Home() {
           <SpecialOffer/> 
         </div>
         <div>
-          <AboutUs/>
+          {/* <AboutUs/> */}
         </div>
         
       </div> 

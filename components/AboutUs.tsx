@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div>
       <div className='pt-5 padding-X'>
-        <h1 className='absolute max-w-[500]  text-white text-5xl borderRadius bg-lime-600'>
+        <h1 className='absolute max-w-[500] text-white text-5xl borderRadius bg-lime-600'>
           About Us
         </h1>
         <Image

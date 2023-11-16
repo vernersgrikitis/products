@@ -18,11 +18,13 @@ interface ProductResponse {
 
 const ProductHome: React.FC = () => {
   const [productData, setProductData] = useState<ProductResponse | null>(null);
+  const pageSize = 4;
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(API_URL, {cache: 'no-store'});
+        const response = await fetch(API_URL, { cache: 'no-store' });
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
@@ -37,9 +39,28 @@ const ProductHome: React.FC = () => {
     fetchData();
   }, []);
 
+  const totalProducts = productData?.products.length || 0;
+  const totalPages = Math.ceil(totalProducts / pageSize);
+
+  const handlePageChange = (newPage: number) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
+
   return (
     <div className="container mx-auto">
-      {productData && <ProductCarousel products={productData.products} />}
+      {productData && (
+        <ProductCarousel
+          products={productData.products.slice(
+            (currentPage - 1) * pageSize,
+            currentPage * pageSize
+          )}
+          onPageChange={handlePageChange}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
+      )}
     </div>
   );
 };

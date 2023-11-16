@@ -5,11 +5,17 @@ import { useState } from 'react';
 
 const Search = () => {
 
+    const [input, setInput] = useState("");
     const [results, setResults] = useState<any[]>([]);
 
+    const handleEmptyList = () => {
+        setResults([]);
+        setInput('');
+    };
+
     return (
-        <div className='absolute z-50 w-[300px]'>
-            <Searchbar setResults={setResults}/>
+        <div onClick={handleEmptyList} className='absolute z-50 w-[300px]'>
+            <Searchbar input={input} setInput={setInput} setResults={setResults}/>
             <SearchResultsList results={results}/>
         </div>
     )
