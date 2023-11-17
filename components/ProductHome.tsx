@@ -1,19 +1,17 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import ProductCarousel from './ProductCarousel';
-import { API_URL } from "@/constants";
-
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  currency: string;
-  category: string;
-  description: string;
-}
+import getProducts from '@/app/fetchdata/getProducts';
 
 interface ProductResponse {
-  products: Product[];
+  products: Array<{
+    id: number;
+    name: string;
+    price: number;
+    currency: string;
+    category: string;
+    description: string;
+  }>;
 }
 
 const ProductHome: React.FC = () => {
@@ -21,19 +19,9 @@ const ProductHome: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch(API_URL, {cache: 'no-store'});
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-
-        const jsonData: ProductResponse = await response.json();
-        setProductData(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+      const response = await getProducts();
+      setProductData(response);
     };
-
     fetchData();
   }, []);
 

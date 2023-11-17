@@ -1,4 +1,4 @@
-import { Hero, ProductHome, SpecialOffer, AboutUs } from '@/constants';
+import { Hero, ProductHome, SpecialOffer } from '@/constants';
 
 export default function Home() {
 
@@ -12,10 +12,6 @@ export default function Home() {
         <div>
           <SpecialOffer/> 
         </div>
-        <div>
-          <AboutUs/>
-        </div>
-        
       </div> 
     </div>
 

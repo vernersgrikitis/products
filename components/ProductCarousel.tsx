@@ -15,16 +15,16 @@ interface ProductCarouselProps {
 }
 
 const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
-
   return (
-
-    <Slider {...settings} className='mt-4 px-4'>
-    {products.map((product) => (
-        <div key={product.id} className='px-1'>
-            <Product product={product}/>
-        </div>
-    ))}
-    </Slider>
+    <div>
+      <Slider {...settings} className='mt-4 px-4'>
+        {products.map((product) => (
+          <div key={product.id} className='px-1'>
+            <Product product={product} />
+          </div>
+        ))}
+      </Slider>
+    </div>
   );
 };
 
@@ -39,29 +39,15 @@ export const settings = {
   responsive: [
     {
       breakpoint: 1024,
-      settings: {
-        dots: false,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        infinite: true,
-      }
+      settings: { dots: false, slidesToShow: 3, slidesToScroll: 2, }
     },
     {
       breakpoint: 600,
-      settings: {
-        arrows: false,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        initialSlide: 2
-      }
+      settings: { arrows: false, slidesToShow: 2, slidesToScroll: 1, }
     },
     {
       breakpoint: 480,
-      settings: {
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
+      settings: { arrows: false, slidesToShow: 1, slidesToScroll: 1, }
     }
   ]
 };

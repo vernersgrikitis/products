@@ -3,22 +3,23 @@ import bread from '../assets/bread.jpg';
 import salmon from '../assets/salmon.jpg';
 import meat from '../assets/meat.jpg';
 import bgImage from "../assets/bg.jpg";
+import openMenu from '../assets/burger.svg'
+import closeMenu from '../assets/close.svg'
 
 export const NAV_LINKS = [
 
     { href: '/', key: 'home', label: 'Home' },
-    { href: '/', key: 'about', label: 'About Us' },
-    { href: '/', key: 'products', label: 'Products' },
+    { href: '/products', key: 'products', label: 'Products' },
     { href: '/', key: 'contact', label: 'Contact Us' },
 ];
 
 export const API_URL = 'https://run.mocky.io/v3/b54fe93f-f5a1-426b-a76c-e43d246901fd';
 
 export const HERO_IMAGES = [
-    { src: apples, text: 'Fresh and Delicious Apples', href: '/' },
-    { src: bread, text: 'Artisanal Whole Grain Bread', href: '/' },
-    { src: salmon, text: 'Fresh Atlantic Salmon Fillet', href: '/' },
-    { src: meat, text: 'Juicy and Flavorful Meat', href: '/' },
+    { src: apples, text: 'Fresh and Delicious Apples', href: '/products' },
+    { src: bread, text: 'Artisanal Whole Grain Bread', href: '/products' },
+    { src: salmon, text: 'Fresh Atlantic Salmon Fillet', href: '/products' },
+    { src: meat, text: 'Juicy and Flavorful Meat', href: '/products' },
 ];
 
 export const BACKGROUND_CONFIG = {
@@ -29,7 +30,10 @@ export const BACKGROUND_CONFIG = {
     justifyContent: 'center',
 };
 
+export const BURGER_MENU = {
+    openMenu, closeMenu
+};
+
 export { default as Hero } from '../components/Hero';
 export { default as ProductHome } from '../components/ProductHome';
 export { default as SpecialOffer } from '../components/SpecialOffer';
-export { default as AboutUs } from '../components/AboutUs';

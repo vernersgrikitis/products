@@ -3,11 +3,8 @@ import './globals.css';
 import Navbar from '../components/Navbar';
 import { BACKGROUND_CONFIG } from '@/constants';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout(
+  { children } : { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body style={BACKGROUND_CONFIG}>
