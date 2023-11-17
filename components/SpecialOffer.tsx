@@ -24,10 +24,10 @@ const SpecialOffer = async () => {
                 />
             </div>
             <div className='h-screen'>
-                <div className='mx-auto flex justify-center'>
-                    <ul className='text-black text-sm absolute mx-auto justify-end md:top-10 md:right-10 p-5 bg-stone-100 borderRadius'>
-                        <h1 className='sm:text-sm md:text-lg lg:text-xl xl:text-2xl px-3 py-3 text-white bg-lime-600 border-2 border-slate-300 rounded-2xl text-center' >
-                            <Link href='/'>
+                <div className='autoFlexJustify'>
+                    <div className='text-black text-sm absolute mx-auto justify-end md:top-10 md:right-10 p-5 bg-stone-100 borderRadius'>
+                        <h1 className='products-text px-3 py-3  bg-lime-600 borderRadius text-center' >
+                            <Link href='/products'>
                                 Today special offer 
                             </Link>
                         </h1>
@@ -36,7 +36,7 @@ const SpecialOffer = async () => {
                                 {el.description}
                             </p>
                         )}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div> 

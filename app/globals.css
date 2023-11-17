@@ -23,8 +23,20 @@ body {
     @apply lg:px-5 md:px-5 sm:px-5
   }
 
+  .padding-Y {
+    @apply lg:py-5 md:py-5 sm:py-5
+  }
+
+  .autoFlexJustify {
+    @apply mx-auto flex justify-center
+  }
+
   .hero-responsive {
     @apply sm:text-3xl md:text-5xl lg:text-7xl xl:text-8xl
+  }
+
+  .products-text {
+    @apply sm:text-sm md:text-lg lg:text-xl xl:text-2xl text-white
   }
 
   .navbar {

@@ -1,9 +1,7 @@
 'use client'
-import { NAV_LINKS } from '@/constants'
+import { NAV_LINKS, BURGER_MENU } from '@/constants'
 import Image from 'next/image'
 import Link from 'next/link'
-import burger from '../assets/burger.svg'
-import close from '../assets/close.svg'
 import { useState } from 'react';
 import Search from './Search'
 
@@ -23,10 +21,10 @@ const Navbar = () => {
                             <button className="p-1 rounded-md outline-none pl-4 focus:border" 
                                 onClick={() => setOpen(!open)} >
                                     {open ? (
-                                    <Image src={close} width={30} height={30} alt="logo" />
+                                    <Image src={BURGER_MENU.closeMenu} width={30} height={30} alt="logo" />
                                 ) : (
                                     <Image
-                                        src={burger}
+                                        src={BURGER_MENU.openMenu}
                                         width={30}
                                         height={30}
                                         alt='burger menu'

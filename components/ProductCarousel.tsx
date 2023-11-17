@@ -12,17 +12,9 @@ interface ProductCarouselProps {
     category: string;
     description: string;
   }>;
-  onPageChange: (newPage: number) => void;
-  currentPage: number;
-  totalPages: number;
 }
 
-const ProductCarousel: React.FC<ProductCarouselProps> = ({
-  products,
-  onPageChange,
-  currentPage,
-  totalPages,
-}) => {
+const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
   return (
     <div>
       <Slider {...settings} className='mt-4 px-4'>
@@ -32,22 +24,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
           </div>
         ))}
       </Slider>
-
-      <div className="flex justify-between mt-4">
-        <button
-          onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous Page
-        </button>
-        <span>{`Page ${currentPage} of ${totalPages}`}</span>
-        <button
-          onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next Page
-        </button>
-      </div>
     </div>
   );
 };
@@ -63,29 +39,15 @@ export const settings = {
   responsive: [
     {
       breakpoint: 1024,
-      settings: {
-        dots: false,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        infinite: true,
-      }
+      settings: { dots: false, slidesToShow: 3, slidesToScroll: 2, }
     },
     {
       breakpoint: 600,
-      settings: {
-        arrows: false,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        initialSlide: 2
-      }
+      settings: { arrows: false, slidesToShow: 2, slidesToScroll: 1, }
     },
     {
       breakpoint: 480,
-      settings: {
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
+      settings: { arrows: false, slidesToShow: 1, slidesToScroll: 1, }
     }
   ]
 };
