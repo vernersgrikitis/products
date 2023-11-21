@@ -1,4 +1,4 @@
-import { API_URL } from "@/constants";
+import { API_URL } from '@/constants';
 
 interface ProductResponse {
   products: Array<{ 
@@ -48,7 +48,7 @@ const Searchbar: React.FC<SearchbarProps> = ({ input, setInput, setResults }) =>
           value={input}
           onChange={(e) => handleChange(e.target.value)}
           onClick={handleInputClick}
-          placeholder='Serach for products...' 
+          placeholder='Search for products...' 
           className='text-white rounded-full shadow-md border-2 border-slate-300 h-10 w-full bg-lime-600 p-4 focus:outline-none placeholder-white'
         />
     </div>

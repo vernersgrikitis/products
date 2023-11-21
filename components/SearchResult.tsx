@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 interface SearchResultProps {
   result: {
@@ -14,8 +14,8 @@ const SearchResult: React.FC<SearchResultProps> = ({ result }) => {
     <Link href={`/products/${result.id}`} 
       className='p-2 px-4 bg-lime-700 hover:bg-lime-300 transition-colors duration-300 block' passHref>
       <h1>{result.name}</h1>
-      <p className="text-xs">Price: {result.price} eur/kg</p>
-      <p className="text-xs">Category: {result.category}</p>
+      <p className='text-xs'>Price: {result.price} eur/kg</p>
+      <p className='text-xs'>Category: {result.category}</p>
     </Link>
   );
 }

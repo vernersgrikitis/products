@@ -2,15 +2,13 @@ import apples from '../assets/apples.jpg';
 import bread from '../assets/bread.jpg';
 import salmon from '../assets/salmon.jpg';
 import meat from '../assets/meat.jpg';
-import bgImage from "../assets/bg.jpg";
+import bgImage from '../assets/bg.jpg';
 import openMenu from '../assets/burger.svg'
 import closeMenu from '../assets/close.svg'
 
 export const NAV_LINKS = [
-
     { href: '/', key: 'home', label: 'Home' },
     { href: '/products', key: 'products', label: 'Products' },
-    { href: '/', key: 'contact', label: 'Contact Us' },
 ];
 
 export const API_URL = 'https://run.mocky.io/v3/b54fe93f-f5a1-426b-a76c-e43d246901fd';
