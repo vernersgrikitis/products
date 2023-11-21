@@ -1,21 +1,32 @@
-'use client'
 import Searchbar from '@/components/Searchbar';
 import SearchResultsList from '@/components/SearchResultsList';
-import { useState } from 'react';
 
-const Search = () => {
+type SearchProps = {
+    input: string;
+    setInput: (value: string) => void;
+    results: Array<{
+        id: number;
+        name: string;
+        price: number; 
+        category: string; 
+    }>;
+    setResults: (results: Array<{}>) => void;
+};
 
-    const [input, setInput] = useState("");
-    const [results, setResults] = useState<any[]>([]);
+const Search: React.FC<SearchProps> = ({ input, setInput, results, setResults }) => {
 
-    const handleEmptyList = () => {
+    const handleInputClick = () => {
+        setInput("");
         setResults([]);
-        setInput('');
     };
 
     return (
-        <div onClick={handleEmptyList} className='absolute z-50 w-[300px]'>
-            <Searchbar input={input} setInput={setInput} setResults={setResults}/>
+        <div onClick={handleInputClick} className='absolute z-50 w-[300px]'>
+            <Searchbar 
+                input={input} 
+                setInput={setInput} 
+                setResults={setResults}
+            />
             <SearchResultsList results={results}/>
         </div>
     )

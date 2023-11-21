@@ -8,27 +8,39 @@ import Search from './Search'
 const Navbar = () => {
 
     const [open, setOpen] = useState(false);
+    const [results, setResults] = useState<any[]>([]);
+    const [input, setInput] = useState('');
+
+    const handleEmptyList = () => {
+        setResults([]);
+        setInput('');
+    };
 
     return (
-        <div>
-            <nav className="w-full">
-                <div className="max-w-[1440px] mx-auto lg:max-w-7xl items-center md:px-8 md:py-1">
+        <div onClick={handleEmptyList} className='h-full'>
+            <nav className='w-full'>
+                <div className='max-w-[1440px] mx-auto lg:max-w-7xl items-center md:px-8 md:py-1'>
                     <div className='pb-2'>
-                        <div className='flex justify-end mx-auto pt-1 pr-1 '>
-                            <Search/>
+                        <div className='flex justify-end mx-auto pt-1 pr-1'>
+                            <Search 
+                                input={input} 
+                                setInput={setInput} 
+                                results={results} 
+                                setResults={setResults}
+                            />
                         </div>
-                        <div className="md:hidden">
-                            <button className="p-1 rounded-md outline-none pl-4 focus:border" 
+                        <div className='md:hidden'>
+                            <button className='p-1 rounded-md outline-none pl-4 focus:border' 
                                 onClick={() => setOpen(!open)} >
                                     {open ? (
-                                    <Image src={BURGER_MENU.closeMenu} width={30} height={30} alt="logo" />
+                                    <Image src={BURGER_MENU.closeMenu} width={30} height={30} alt='logo' />
                                 ) : (
                                     <Image
                                         src={BURGER_MENU.openMenu}
                                         width={30}
                                         height={30}
                                         alt='burger menu'
-                                        className="focus:border-none active:border-none"
+                                        className='focus:border-none active:border-none'
                                     />
                                 )}
                             </button> 

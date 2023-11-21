@@ -1,7 +1,10 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { API_URL } from "@/constants";
+import { API_URL } from '@/constants';
 import Link from 'next/link';
+import rightClick from '@/assets/right-click.svg';
+import leftClick from '@/assets/left-click.svg';
+import PaginationButton from '@/components/PaginationButton';
 
 interface ProductResponse {
   products: Array<{
@@ -52,13 +55,12 @@ const page: React.FC = () => {
   const totalPages = products ? Math.ceil(products.products.length / productsPerPage) : 0;
 
   return (
-    <div className='autoFlexJustify padding-X padding-Y'>
+    <div className='autoFlexJustify padding-X padding-Y products-text'>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-
       {!loading && !error && (
-        <div className='flex-col '>
-          <div className=''>
+        <div className='flex-col w-[345px] sm:w-[470px] md:w-[700px] h-full'>
+          <div>
             {paginatedProducts(currentPage).map((product) => (
               <div key={product.id} className='mt-5 text-black p-4 bg-stone-100 borderRadius'>
                 <Link href={`/products/${product.id}`}>
@@ -72,18 +74,39 @@ const page: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className='autoFlexJustify '>
-            <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-            >
-              Previous
-            </button>
-            <span> Page {currentPage} of {totalPages} </span>
-            <button onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </button>
+          <div className='flex py-5 px-5'>
+            <div>
+              <PaginationButton 
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                imageSrc={leftClick}
+                imageAlt='left click'
+                imageSize={{ width: 40, height: 40 }}
+                classNameForImage='bg-lime-600 borderRadius cursor-pointer'
+              />
+            </div>
+            <div className='autoFlexJustify text-white '>
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <PaginationButton 
+                  key={index}
+                  onClick={() => setCurrentPage(index + 1)}
+                  className={`${currentPage === index + 1 ? 
+                  'borderRadius bg-white px-2 py-2 mx-1' 
+                  : 
+                  ' bg-lime-600 borderRadius px-2 py-2 mx-1'}`}
+                />
+              ))}
+            </div>
+            <div>
+              <PaginationButton 
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                imageSrc={rightClick}
+                imageAlt='right click'
+                imageSize={{ width: 40, height: 40 }}
+                classNameForImage='bg-lime-600 borderRadius cursor-pointer'
+              />
+            </div>
           </div>
         </div>
       )}

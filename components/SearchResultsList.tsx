@@ -1,4 +1,4 @@
-import SearchResult from "./SearchResult";
+import SearchResult from './SearchResult';
 
 interface SearchResultsListProps {
   results: Array<{

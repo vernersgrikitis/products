@@ -18,7 +18,7 @@ const page = async (
     const parsedId = parseInt(params.id)
 
     return (
-        <div className='autoFlexJustify padding-X padding-Y'>
+        <div className='autoFlexJustify padding-X padding-Y w-[345px] sm:w-[470px] md:w-[700px] h-full products-text'>
             { products.products
                 .filter((product) => product.id === parsedId)
                 .map((correctProduct) => (
