@@ -1,10 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import ProductCarousel from './ProductCarousel';
-import { ProductService, ProductProps } from '../services/ProductService';
+import { ProductService, ProductData } from '../services/ProductService';
 
 const ProductHome: React.FC = () => {
-    const [productData, setProductData] = useState<ProductProps | null>(null);
+    const [productData, setProductData] = useState<ProductData | null>(null);
 
     const productService = new ProductService;
 
