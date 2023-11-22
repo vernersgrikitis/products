@@ -1,9 +1,9 @@
-import { ProductService, ProductProps } from './ProductService';
+import { ProductService, Product } from '../services/ProductService';
 
 type SearchbarProps = {
   input: string;
   setInput: (value: string) => void;
-  setResults: (results: ProductProps['products']) => void;
+  setResults: (results: Product[]) => void;
 };
 
 const Searchbar: React.FC<SearchbarProps> = ({ input, setInput, setResults }) => {

@@ -1,14 +1,16 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import ProductCarousel from './ProductCarousel';
-import getProducts, { ProductProps } from './ProductService';
+import { ProductService, ProductProps } from '../services/ProductService';
 
 const ProductHome: React.FC = () => {
     const [productData, setProductData] = useState<ProductProps | null>(null);
 
+    const productService = new ProductService;
+
     useEffect(() => {
         const fetchData = async () => {
-            const response = await getProducts();
+            const response = await productService.getProducts();
             setProductData(response);
         };
         fetchData();

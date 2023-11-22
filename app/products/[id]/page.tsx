@@ -1,10 +1,11 @@
-import getProducts, { ProductProps } from "@/components/ProductService";
+import { ProductService, ProductProps } from "@/services/ProductService";
 
 const page = async (
     { params } : 
     { params: { id: string }}) => {
 
-    const products: ProductProps = await getProducts();
+    const productService = new ProductService;
+    const products: ProductProps = await productService.getProducts();
     const parsedId = parseInt(params.id)
 
     return (

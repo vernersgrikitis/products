@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { ProductProps } from './ProductService';
+import { Product } from '../services/ProductService';
 
 interface SearchResultProps {
-  product: ProductProps['products'][0];
+  product: Product;
 }
 
 const SearchResult: React.FC<SearchResultProps> = ({ product }) => {

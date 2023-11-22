@@ -1,14 +1,16 @@
 import {API_URL} from "@/constants";
 
 export interface ProductProps {
-  products: Array<{
+    products: Product[];
+}
+  
+export interface Product {
     id: number;
     name: string;
     price: number;
     currency: string;
     category: string;
     description: string;
-  }>;
 }
 
 export class ProductService {
@@ -34,14 +36,14 @@ export class ProductService {
             throw error;
         }
     };
-}
 
-export default async function getProducts() {
-    const response = await fetch(API_URL);
-
-    if(!response.ok) {
-        throw new Error(`failed fetch products from ${API_URL}`);
+    async getProducts() {
+        const response = await fetch(API_URL);
+    
+        if(!response.ok) {
+            throw new Error(`failed fetch products from ${API_URL}`);
+        }
+    
+        return await response.json();
     }
-
-    return await response.json();
 }

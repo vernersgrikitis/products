@@ -1,5 +1,5 @@
 import SearchResult from './SearchResult';
-import { ProductProps } from './ProductService';
+import { ProductProps } from '../services/ProductService';
 
 const SearchResultsList: React.FC<ProductProps> = ({ products }) => {
   return (

@@ -3,17 +3,18 @@ import React, { useState, useEffect } from 'react';
 import { PAGINATION_ARROWS } from '@/constants';
 import Link from 'next/link';
 import PaginationButton from '@/components/PaginationButton';
-import getProducts, { ProductProps } from '@/components/ProductService';
-
+import { ProductService, ProductProps } from '@/services/ProductService';
 
 const page: React.FC = () => {
   const [products, setProducts] = useState<ProductProps | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const productsPerPage = 4;
 
+  const productService = new ProductService;
+
   const handleProducts = async () => {
     try {
-      const fetchedProducts = await getProducts();
+      const fetchedProducts = await productService.getProducts();
       setProducts(fetchedProducts);
     } catch (error) {
       console.error("Error fetching products:", error);
