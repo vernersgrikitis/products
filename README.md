@@ -1,13 +1,11 @@
+![productsgif](https://github.com/vernersgrikitis/products/assets/127933614/68d50e18-8af0-4da6-8dc2-cc339d8a4403)
+
 # Products Application
 
 ### Products app is created using Next.js, TypeScript ,React, Tailwind.
 
 ### Products Application is a responsive web page that fetches data from API
 
-- With instant responsive search, and dynamic product pages
-- Application is creating pagination, carousel, dynamic pages using data from API
-- Responsive for different devices
-- Excellent page speeds
 - Instant Search
 - React Carousel
 - Dynamic product pages
