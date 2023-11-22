@@ -1,20 +1,10 @@
-import getProducts from '@/app/fetchdata/getProducts';
-
-interface ProductResponse {
-    products: Array<{
-      id: number;
-      name: string;
-      price: number;
-      category: string;
-      description: string;
-    }>;
-}
+import getProducts, { ProductProps } from "@/components/ProductService";
 
 const page = async (
     { params } : 
     { params: { id: string }}) => {
 
-    const products: ProductResponse = await getProducts();
+    const products: ProductProps = await getProducts();
     const parsedId = parseInt(params.id)
 
     return (

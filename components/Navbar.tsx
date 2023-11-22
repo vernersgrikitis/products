@@ -8,26 +8,14 @@ import Search from './Search'
 const Navbar = () => {
 
     const [open, setOpen] = useState(false);
-    const [results, setResults] = useState<any[]>([]);
-    const [input, setInput] = useState('');
-
-    const handleEmptyList = () => {
-        setResults([]);
-        setInput('');
-    };
 
     return (
-        <div onClick={handleEmptyList} className='h-full'>
+        <div className='h-full'>
             <nav className='w-full'>
                 <div className='max-w-[1440px] mx-auto lg:max-w-7xl items-center md:px-8 md:py-1'>
                     <div className='pb-2'>
                         <div className='flex justify-end mx-auto pt-1 pr-1'>
-                            <Search 
-                                input={input} 
-                                setInput={setInput} 
-                                results={results} 
-                                setResults={setResults}
-                            />
+                            <Search/>
                         </div>
                         <div className='md:hidden'>
                             <button className='p-1 rounded-md outline-none pl-4 focus:border' 
@@ -60,7 +48,6 @@ const Navbar = () => {
                                     </li>
                                 ))}
                             </ul>
-
                         </div>
                     </div>
                 </div>
