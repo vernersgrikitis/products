@@ -1,6 +1,6 @@
 import {API_URL} from "@/constants";
 
-export interface ProductProps {
+export interface ProductData {
     products: Product[];
 }
   
@@ -15,19 +15,19 @@ export interface Product {
 
 export class ProductService {
 
-    async fetchData(value: string): Promise<ProductProps> {
+    async fetchData(value: string): Promise<ProductData> {
         try {
             const response = await fetch(API_URL);
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
-            const json: ProductProps = await response.json();
+            const json: ProductData = await response.json();
             const filteredProducts = json.products.filter((product) => {
                 return (value && product && product.name
                     && product.name.toLowerCase().includes(value)
                 );
             });
-            const filteredProductProps: ProductProps = {
+            const filteredProductProps: ProductData = {
                 products: filteredProducts,
             };
             return filteredProductProps;

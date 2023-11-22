@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import groceries from '../assets/groceries.jpg'
 import Link from 'next/link';
-import { ProductService, ProductProps } from '../services/ProductService';
+import { ProductService, ProductData } from '../services/ProductService';
 
 const SpecialOffer = async () => {
 
     const productService = new ProductService;
-    const products: ProductProps = await productService.getProducts();
+    const products: ProductData = await productService.getProducts();
 
     return (
         <div className='relative mx-auto justify-center pt-5 flex padding-X'>

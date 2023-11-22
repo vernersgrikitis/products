@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { PAGINATION_ARROWS } from '@/constants';
 import Link from 'next/link';
 import PaginationButton from '@/components/PaginationButton';
-import { ProductService, ProductProps } from '@/services/ProductService';
+import { ProductService, ProductData } from '@/services/ProductService';
 
 const page: React.FC = () => {
-  const [products, setProducts] = useState<ProductProps | null>(null);
+  const [products, setProducts] = useState<ProductData | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const productsPerPage = 4;
 
