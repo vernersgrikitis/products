@@ -2,8 +2,8 @@
 
 # Products Application
 
-### Products app is created using Next.js, TypeScript ,React, Tailwind.
-### Products Application is a responsive web page that fetches data from API
+### Products Application is created using Next.js, TypeScript ,React, Tailwind.
+### Products Application is a responsive web page that fetches data from API and manipulate with it
 
 - Instant Search
 
@@ -15,9 +15,8 @@
 
 - Hamburgermenu for mobile version
 
+
 ## Getting Started
-
-
 
 - Download products repository via command line git clone https://github.com/vernersgrikitis/products.git
 - Open the downloaded folder with your IDE, or just navigate to the downloaded folder via your command line
