@@ -1,19 +1,11 @@
 import SearchResult from './SearchResult';
+import { ProductProps } from '../services/ProductService';
 
-interface SearchResultsListProps {
-  results: Array<{
-    id: number;
-    name: string;
-    price: number; 
-    category: string; 
-  }>;
-}
-
-const SearchResultsList: React.FC<SearchResultsListProps> = ({ results }) => {
+const SearchResultsList: React.FC<ProductProps> = ({ products }) => {
   return (
     <div className='w-full text-white cursor-pointer flex flex-col rounded-xl mt-4 max-h-[300px] overflow-auto'>
-      {results.map((result) => (
-        <SearchResult result={result} key={result.id} />
+      {products.map((product) => (
+        <SearchResult product={product} key={product.id} />
       ))}
     </div>
   );

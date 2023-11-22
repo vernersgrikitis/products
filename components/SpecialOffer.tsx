@@ -1,18 +1,12 @@
-import getProducts from '@/app/fetchdata/getProducts';
 import Image from 'next/image';
 import groceries from '../assets/groceries.jpg'
 import Link from 'next/link';
-
-interface ProductResponse {
-    products: Array<{
-      id: number;
-      description: string;
-    }>;
-}
+import { ProductService, ProductProps } from '../services/ProductService';
 
 const SpecialOffer = async () => {
 
-    const products: ProductResponse = await getProducts();
+    const productService = new ProductService;
+    const products: ProductProps = await productService.getProducts();
 
     return (
         <div className='relative mx-auto justify-center pt-5 flex padding-X'>

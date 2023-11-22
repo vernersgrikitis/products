@@ -1,35 +1,26 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import ProductCarousel from './ProductCarousel';
-import getProducts from '@/app/fetchdata/getProducts';
-
-interface ProductResponse {
-  products: Array<{
-    id: number;
-    name: string;
-    price: number;
-    currency: string;
-    category: string;
-    description: string;
-  }>;
-}
+import { ProductService, ProductProps } from '../services/ProductService';
 
 const ProductHome: React.FC = () => {
-  const [productData, setProductData] = useState<ProductResponse | null>(null);
+    const [productData, setProductData] = useState<ProductProps | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await getProducts();
-      setProductData(response);
-    };
-    fetchData();
-  }, []);
+    const productService = new ProductService;
 
-  return (
-    <div className="container mx-auto">
-      {productData && <ProductCarousel products={productData.products} />}
-    </div>
-  );
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await productService.getProducts();
+            setProductData(response);
+        };
+        fetchData();
+    }, []);
+
+    return (
+        <div className="container mx-auto">
+            {productData && <ProductCarousel products={productData.products} />}
+        </div>
+    );
 };
 
 export default ProductHome;

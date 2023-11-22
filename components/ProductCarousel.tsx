@@ -1,32 +1,34 @@
+import React from 'react';
+import Link from 'next/link';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Product from './Product';
+import { ProductProps } from '../services/ProductService';
 
-interface ProductCarouselProps {
-  products: Array<{
-    id: number;
-    name: string;
-    price: number;
-    currency: string;
-    category: string;
-    description: string;
-  }>;
-}
+const ProductCarousel: React.FC<ProductProps> = ({ products }) => {
 
-const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
   return (
     <div>
       <Slider {...settings} className='mt-4 px-4'>
         {products.map((product) => (
           <div key={product.id} className='px-1'>
-            <Product product={product} />
+            <div className='p-4 borderRadius bg-stone-100 shadow-md mx-auto h-40'>
+              <Link href={`http://localhost:3000/products/${product.id}`} 
+                className='text-black cursor-pointer md:hover:text-lime-600 text-lg'
+              >
+                {product.name}
+              </Link>
+              <p className='text-black'>{product.description}</p>
+              <p className='text-green-950'>Price: {product.price}eur/kg</p>
+            </div>
           </div>
         ))}
       </Slider>
     </div>
   );
 };
+
+export default ProductCarousel;
 
 export const settings = {
   dots: false,
@@ -39,17 +41,15 @@ export const settings = {
   responsive: [
     {
       breakpoint: 1024,
-      settings: { dots: false, slidesToShow: 3, slidesToScroll: 2, }
+      settings: { dots: false, slidesToShow: 3, slidesToScroll: 2 }
     },
     {
       breakpoint: 600,
-      settings: { arrows: false, slidesToShow: 2, slidesToScroll: 1, }
+      settings: { arrows: false, slidesToShow: 2, slidesToScroll: 1 }
     },
     {
       breakpoint: 480,
-      settings: { arrows: false, slidesToShow: 1, slidesToScroll: 1, }
+      settings: { arrows: false, slidesToShow: 1, slidesToScroll: 1 }
     }
   ]
 };
-
-export default ProductCarousel;

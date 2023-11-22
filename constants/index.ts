@@ -5,6 +5,8 @@ import meat from '../assets/meat.jpg';
 import bgImage from '../assets/bg.jpg';
 import openMenu from '../assets/burger.svg'
 import closeMenu from '../assets/close.svg'
+import rightClick from '../assets/right-click.svg';
+import leftClick from '../assets/left-click.svg';
 
 export const NAV_LINKS = [
     { href: '/', key: 'home', label: 'Home' },
@@ -31,6 +33,10 @@ export const BACKGROUND_CONFIG = {
 export const BURGER_MENU = {
     openMenu, closeMenu
 };
+
+export const PAGINATION_ARROWS = {
+    leftClick, rightClick
+}
 
 export { default as Hero } from '../components/Hero';
 export { default as ProductHome } from '../components/ProductHome';
