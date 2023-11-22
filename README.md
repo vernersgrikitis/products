@@ -3,17 +3,24 @@
 # Products Application
 
 ### Products app is created using Next.js, TypeScript ,React, Tailwind.
-
 ### Products Application is a responsive web page that fetches data from API
 
 - Instant Search
+
 - React Carousel
+
 - Dynamic product pages
+
 - Pagination of products via http://localhost:3000/products
+
+- Hamburgermenu for mobile version
 
 ## Getting Started
 
-- Download products via command line git clone https://github.com/vernersgrikitis/products.git
-- Open downloaded folder with your IDE
-- Open terminal in IDE, hit "npm i" for node modules(you must have installed node on your device)
+
+
+- Download products repository via command line git clone https://github.com/vernersgrikitis/products.git
+- Open the downloaded folder with your IDE, or just navigate to the downloaded folder via your command line
+- Open terminal on IDE and execute "npm i", or just execute "npm i" on your command line
+- You must have installed node.js on your device
 - Then "npm run dev" -> and you will be able to find content at http://localhost:3000
