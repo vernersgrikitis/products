@@ -1,3 +1,5 @@
+# Products Application
+
 ### Products app is created using Next.js, TypeScript ,React, Tailwind.
 
 ### Products Application is a responsive web page that fetches data from API
